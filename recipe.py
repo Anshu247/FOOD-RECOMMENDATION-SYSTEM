@@ -5,10 +5,14 @@ import pickle
 import pandas as pd
 import requests
 import re
+from dotenv import  load_dotenv
+import os
+
+load_dotenv()
 
 def get_food_recommendations_from_api(food):
-    app_id = '7b33e0b4'
-    app_key = 'e9877a1bc22eb3cc3e1427f78d843310'
+    app_id = os.getenv('app_id')
+    app_key = os.getenv('app_key')
     
     url = f'https://api.edamam.com/api/recipes/v2?type=public&app_id={app_id}&app_key={app_key}&q={food}'
 
